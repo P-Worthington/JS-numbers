@@ -1,5 +1,5 @@
 function getValue(a) {
-    var x = document.getElementById("myForm").elements[a].value;
+    let x = document.getElementById("myForm").elements[a].value;
     x = Number(x);
     if (isNaN(x) === true) {
         alert('Please input a number');
@@ -7,6 +7,27 @@ function getValue(a) {
         return x;
     };
 };
+
+function valueRandomNumber(a) {
+    let x = document.getElementById("randNum").elements[a].value;
+    x = Number(x);
+    if (isNaN(x) === true) {
+        alert('Please input a number');
+    } else {
+        return x;
+    };
+};
+
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+  }
+
+function randNumGenerator (number, rolls) {
+    let testNum = number - 1;
+    let x = getRandomInt(x);
+    let result = x + 1;
+    console.log(result)
+}
 
 function additionOperation (a, b) {
     result = a + b;
@@ -66,4 +87,10 @@ function exponential () {
     value2 = getValue(1);
     result = exponentialOperation (value1, value2);
     document.getElementById("query").innerHTML = `${value1} ^ ${value2} = ${result}`;
+}
+
+function randomNum () {
+    rand = valueRandomNumber(0);
+    rolls = valueRandomNumber(1);
+    result = randNumGenerator(rand, rolls);
 }
