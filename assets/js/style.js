@@ -18,15 +18,17 @@ function valueRandomNumber(a) {
     };
 };
 
-function getRandomInt(max) {
-    return Math.floor(Math.random() * max);
-  }
-
 function randNumGenerator (number, rolls) {
-    let testNum = number - 1;
-    let x = getRandomInt(x);
-    let result = x + 1;
-    console.log(result)
+    number = Number(number)
+    let result = ""
+    i = 0
+    while (i < rolls) {
+        a = Math.floor(Math.random() * number);
+        a += 1
+        result = result.concat(`${a}, `);
+        i += 1
+    }
+    return result
 }
 
 function additionOperation (a, b) {
@@ -93,4 +95,5 @@ function randomNum () {
     rand = valueRandomNumber(0);
     rolls = valueRandomNumber(1);
     result = randNumGenerator(rand, rolls);
+    document.getElementById("randAns").innerHTML = `${result}`;
 }
