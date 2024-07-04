@@ -1,10 +1,16 @@
-function getValue() {
-    var x = document.getElementById("myForm").elements[0].value;
-    document.getElementById("demo").innerHTML = x;
-    return x
-  }
+function getValue(a) {
+    var x = document.getElementById("myForm").elements[a].value;
+    return x;
+  };
 
-function main () {
-    valueRaw = getValue()
-    console.log(valueRaw)
-}
+function additionOperation (a, b) {
+    result = a + b;
+    return result;
+};
+
+function addition () {
+    value1 = getValue(0);
+    value2 = getValue(1);
+    result = additionOperation (value1, value2);
+    document.getElementById("query").innerHTML = `${value1} + ${value2} = ${result}`;
+};
