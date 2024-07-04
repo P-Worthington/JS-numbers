@@ -56,6 +56,29 @@ function exponentialOperation (a, b) {
     return result;
 };
 
+function removeWS () {
+    let x = document.getElementById("stringRev").elements[0].value;
+    result = x.replace(/\s/g, "");
+    return result;
+}
+
+function flipString (str) {
+    let splitString = str.split("");
+    let reverseArray = splitString.reverse();
+    let flipped = reverseArray.join("");
+    return flipped
+}
+
+function checkPalindrome (a, b) {
+    if (a === b) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+/**Onclick functions  */
+
 function addition () {
     value1 = getValue(0);
     value2 = getValue(1);
@@ -96,4 +119,26 @@ function randomNum () {
     rolls = valueRandomNumber(1);
     result = randNumGenerator(rand, rolls);
     document.getElementById("randAns").innerHTML = `${result}`;
+}
+
+function stringReverse () {
+    input = document.getElementById("stringRev").elements[0].value;
+    resultNoWhite = removeWS();
+    flipped = flipString(resultNoWhite);
+    result = checkPalindrome(resultNoWhite, flipped)
+    if (result === true) {
+        document.getElementById("palindromeAns").innerHTML = `${input} - is a palindrome.`;
+    } else {
+        document.getElementById("palindromeAns").innerHTML = `${input} - is NOT a palindrome.`;
+    }
+}
+
+function countUp () {
+    var sec = -1;
+    function pad(val) { return val > 9 ? val : "0" + val; }
+        setInterval(function () {
+            $("#seconds").html(pad(++sec % 60));
+            $("#minutes").html(pad(parseInt(sec / 60, 10) % 60));
+            $("#hours").html(pad(parseInt(sec / 3600, 10)));
+        }, 1000);
 }
